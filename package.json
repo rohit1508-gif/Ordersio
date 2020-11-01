@@ -1,0 +1,34 @@
+{
+  "name": "ordersio",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "dev": "env-cmd nodemon src/index.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "express": "^4.17.1",
+    "jsonwebtoken": "^8.5.1",
+    "mongodb": "^3.6.1",
+    "mongoose": "^5.10.4",
+    "node": "^14.8.0",
+    "validator": "^13.1.1"
+  },
+  "devDependencies": {
+    "env-cmd": "^10.1.0",
+    "nodemon": "^2.0.4"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rohit1508-gif/Ordersio.git"
+  },
+  "keywords": [],
+  "bugs": {
+    "url": "https://github.com/rohit1508-gif/Ordersio/issues"
+  },
+  "homepage": "https://github.com/rohit1508-gif/Ordersio#readme",
+  "description": ""
+}
