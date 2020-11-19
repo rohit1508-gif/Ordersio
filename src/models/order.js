@@ -11,7 +11,8 @@ const orderSchema = new mongoose.Schema({
         type:mongoose.Schema.Types.ObjectId,
         required:true,
         ref:'User'
-    }
+    },
+    seller:{ type:mongoose.Schema.Types.ObjectId,required:true}
 },{timestamps:true})
 
 const Order = mongoose.model('Order',orderSchema)

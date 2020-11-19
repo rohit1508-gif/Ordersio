@@ -13,10 +13,10 @@ router.post('/orders',auth,async(req,res)=>{
     }
     catch(error){res.status(400).send(error)}
 })
-router.get('/orders',auth,async(req,res)=>{
+router.get('/orders',async(req,res)=>{
     try{
-       await req.user.populate('orders').execPopulate()
-        res.send(req.user.orders)
+       const order = await Order.find({})
+        res.send(order)
     }
     catch(error){res.status(500).send(error)}
 })

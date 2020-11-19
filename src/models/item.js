@@ -6,5 +6,10 @@ mongoose.connect('mongodb://127.0.0.1:27017/ordersio-api',{
 const Item = mongoose.model('Item',{
     itemname:{type:String,required:true,trim:true},
     price:{type:String,required:true,trim:true},
+    owner:{
+        type:mongoose.Schema.Types.ObjectId,
+        required:true,
+        ref:'User'
+    }
 })
 module.exports=Item

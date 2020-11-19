@@ -28,4 +28,13 @@ router.post('/users/logout',auth, async(req,res)=>{
         res.status(500).send()
     }
 })
+router.patch('/users/update',auth,async(req,res)=>{
+    const updates = Object.keys(req.body)
+    try{
+        updates.forEach((update)=>req.user[update]=req.body[update])
+        await req.user.save()
+        res.send(user)
+    }
+    catch(error){res.status(400).send(error)}
+})
 module.exports=router

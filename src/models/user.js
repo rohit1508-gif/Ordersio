@@ -8,12 +8,16 @@ mongoose.connect('mongodb://127.0.0.1:27017/ordersio-api',{
     useCreateIndex:true
 })
 const userSchema = new mongoose.Schema({name:{type:String,required:true,trim:true},
+shopname:{type:String,trim:true},
+mobile:{type:String,required:true,trim:true},
 email:{type:String,required:true,trim:true,unique:true},
 password:{type:String,required:true,trim:true,minlength:7,validate(value){
     if(validator.equals(value,'password')){
         throw new Error('Change your password')
     }
 }},
+address:{type:String,trim:true},
+type:{type:String,required:true,trim:true},
 tokens:[{token:{type:String,required:true}}]},{timestamps:true})
 
 userSchema.pre('save',async function(next){
