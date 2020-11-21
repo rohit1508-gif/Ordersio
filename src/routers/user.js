@@ -37,4 +37,12 @@ router.patch('/users/update',auth,async(req,res)=>{
     }
     catch(error){res.status(400).send(error)}
 })
+router.get('/users/:id',async(req,res)=>{
+    const _id=req.params._id
+    try{
+        const user=await User.findById(_id)
+        res.send(user)
+    }
+    catch(error){res.status(500).send(error)}
+})
 module.exports=router
