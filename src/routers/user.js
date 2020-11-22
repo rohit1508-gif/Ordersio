@@ -39,7 +39,7 @@ router.patch('/users/update',auth,async(req,res)=>{
 })
 router.get('/users',async(req,res)=>{
     try{
-        const user=await User.findById({})
+        const user=await User.find({})
         res.send(user)
     }
     catch(error){res.status(500).send(error)}
