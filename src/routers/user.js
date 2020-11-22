@@ -33,7 +33,7 @@ router.patch('/users/update',auth,async(req,res)=>{
     try{
         updates.forEach((update)=>req.user[update]=req.body[update])
         await req.user.save()
-        res.send(user)
+        res.send(req.user)
     }
     catch(error){res.status(400).send(error)}
 })
