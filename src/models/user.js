@@ -45,6 +45,13 @@ userSchema.statics.findByCridential=async function(email,password){
     if(!ismatch){throw new Error('login failed')}
     return user
 }
+userSchema.statics.findByEmail=async function(email){
+    const user = await User.findOne({email})
+    if(!user){
+        throw new Error('no user found')
+    }
+    return user
+}
 
 userSchema.virtual('orders',{
     ref:'Order',

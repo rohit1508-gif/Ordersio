@@ -44,4 +44,22 @@ router.get('/users',async(req,res)=>{
     }
     catch(error){res.status(500).send(error)}
 })
+router.post('/users/forgotpassword',async(req,res)=>{
+    try{
+    const user = await User.findByEmail(req.body.email)
+    res.send(user)}
+    catch(error){res.status(500).send(error)}
+})
+router.patch('/users/password/:id',async(req,res)=>{
+    const _id = req.params.id 
+    const user= User.findById(_id)
+    const updates = Object.keys(req.body)
+    try{
+        updates.forEach((update)=>user[update]=req.body[update])
+        await user.save()
+        res.send(user)
+    }
+    catch(error){res.status(400).send(error)}
+})
+
 module.exports=router
