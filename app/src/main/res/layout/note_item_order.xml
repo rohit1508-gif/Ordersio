@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#0E7DD5"
+        android:padding="8dp">
+
+        <TextView
+            android:id="@+id/itemname"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:textColor="#F4F1F1"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/itemprice"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_toRightOf="@+id/itemname"
+            android:textColor="#F4F1F1"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/itemamount"
+            android:layout_width="48dp"
+            android:layout_height="33dp"
+            android:layout_toRightOf="@id/itemprice"
+            android:textSize="18sp" />
+
+        <Button
+            android:id="@+id/deletebutton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="3dp"
+            android:layout_toRightOf="@+id/itemamount"
+            android:text="Delete"
+            android:textSize="14sp" />
+
+    </RelativeLayout>
+</androidx.cardview.widget.CardView>
