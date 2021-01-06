@@ -12,7 +12,7 @@ router.post('/carts',auth,async(req,res)=>{
 })
 router.get('/carts',auth,async(req,res)=>{
     try{
-       const cart = await Cart.find({})
+       const cart = await Cart.find({owner:req.user._id})
         res.send(cart)
     }
     catch(error){res.status(500).send(error)}
