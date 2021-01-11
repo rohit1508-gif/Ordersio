@@ -19,14 +19,10 @@ router.get('/items',async(req,res)=>{try{
     catch(error){res.status(400).send(error)}
 })
 router.patch('/items/:id',auth,async (req,res)=>{
+    const _id = req.params.id
     const updates = Object.keys(req.body)
-    const validupdates = ['itemname','price']
-    const isvalidupdates = updates.every((update)=>validupdates.includes(update))
-    if(!isvalidupdates){
-        return res.status(400).send('error:'+ 'Invalid Updates')
-    }
     try{
-        const item = await Item.findById({_id:req.params.id,owner:req.user._id})
+        const item = await Item.findById(_id)
         if(!item){
             return res.status(404).send()
         }
