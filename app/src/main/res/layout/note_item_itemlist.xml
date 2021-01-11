@@ -5,15 +5,16 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#0E7DD5"
+        android:background="#F8F6F8"
         android:padding="8dp">
 
         <TextView
             android:id="@+id/itemname"
-            android:layout_width="230dp"
+            android:layout_width="210dp"
             android:layout_height="wrap_content"
-            android:textColor="#F4F1F1"
-            android:textSize="18sp" />
+            android:textColor="#090909"
+            android:textSize="18sp"
+            android:fontFamily="@font/roboto"/>
 
         <TextView
             android:id="@+id/itemprice"
@@ -21,7 +22,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="5dp"
             android:layout_toRightOf="@+id/itemname"
-            android:textColor="#F4F1F1"
+            android:textColor="#070707"
             android:textSize="18sp" />
 
         <NumberPicker

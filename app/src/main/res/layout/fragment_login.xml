@@ -3,20 +3,21 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/pic1"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
 
-    <androidx.cardview.widget.CardView
-        android:layout_width="382dp"
-        android:layout_height="376dp"
-        android:background="@color/colorAccent"
-        app:cardCornerRadius="10dp"
-        app:cardElevation="50dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="MissingConstraints">
+<!--    <androidx.cardview.widget.CardView-->
+<!--        android:layout_width="382dp"-->
+<!--        android:layout_height="376dp"-->
+<!--        android:background="@color/colorAccent"-->
+<!--        app:cardCornerRadius="10dp"-->
+<!--        app:cardElevation="50dp"-->
+<!--        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="parent"-->
+<!--        tools:ignore="MissingConstraints">-->
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -47,14 +48,14 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="email"
-                    android:textColor="#363A43"
+                    android:textColor="#090909"
                     android:textColorHint="#7A8089" />
             </com.google.android.material.textfield.TextInputLayout>
 
                 <com.google.android.material.textfield.TextInputLayout
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                    android:layout_width="306dp"
-                    android:layout_height="56dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
                     android:layout_marginStart="20dp"
                     android:layout_marginTop="20dp"
                     android:layout_marginEnd="20dp"
@@ -66,7 +67,7 @@
                         android:layout_height="wrap_content"
                         android:hint="password"
                         android:inputType="textPassword"
-                        android:textColor="#363A43"
+                        android:textColor="#050505"
                         android:textColorHint="#7A8089" />
 
                 </com.google.android.material.textfield.TextInputLayout>
@@ -75,7 +76,8 @@
                 android:id="@+id/btn_LogIn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Log In" />
+                android:text="Log In"
+                android:background="#E05BF6"/>
 
             <!--            <ImageButton-->
             <!--                android:id="@+id/imageButton3"-->
@@ -90,7 +92,7 @@
                 android:layout_marginTop="10dp"
                 android:gravity="center"
                 android:text="Don't have an account? SignUp"
-                android:textColor="#363A43"
+                android:textColor="#090909"
                 android:textSize="15sp" />
 
             <TextView
@@ -99,12 +101,12 @@
                 android:layout_marginTop="10dp"
                 android:gravity="center"
                 android:text="Forgot Password"
-                android:textColor="#363A43"
+                android:textColor="#101010"
                 android:textSize="15sp"
                 android:id="@+id/textView3"/>
 
         </LinearLayout>
 
-    </androidx.cardview.widget.CardView>
+<!--    </androidx.cardview.widget.CardView>-->
 
 </androidx.constraintlayout.widget.ConstraintLayout>

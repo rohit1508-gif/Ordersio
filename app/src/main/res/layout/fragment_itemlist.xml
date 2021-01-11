@@ -9,7 +9,9 @@
         android:layout_height="554dp"
         android:layout_above="@id/placeorderbutton"
         android:layout_alignParentStart="true"
-        android:layout_marginStart="0dp" />
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="2dp"
+        android:padding="5dp"/>
 
     <Button
         android:id="@+id/placeorderbutton"
