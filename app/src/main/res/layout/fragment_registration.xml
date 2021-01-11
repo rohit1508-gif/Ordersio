@@ -4,19 +4,20 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@drawable/pic">
 
-    <androidx.cardview.widget.CardView
-        android:layout_width="362dp"
-        android:layout_height="313dp"
-        android:background="#03BDAB"
-        app:cardCornerRadius="10dp"
-        app:cardElevation="50dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="MissingConstraints">
+<!--    <androidx.cardview.widget.CardView-->
+<!--        android:layout_width="362dp"-->
+<!--        android:layout_height="313dp"-->
+<!--        android:background="#03BDAB"-->
+<!--        app:cardCornerRadius="10dp"-->
+<!--        app:cardElevation="50dp"-->
+<!--        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="parent"-->
+<!--        tools:ignore="MissingConstraints">-->
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -37,7 +38,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="ShopName"
-                    android:textColor="#363A43"
+                    android:textColor="#050505"
                     android:textColorHint="#7A8089" />
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -52,7 +53,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="Address"
-                    android:textColor="#363A43"
+                    android:textColor="#070707"
                     android:textColorHint="#7A8089" />
 
             </com.google.android.material.textfield.TextInputLayout>
@@ -65,5 +66,5 @@
 
         </LinearLayout>
 
-    </androidx.cardview.widget.CardView>
+<!--    </androidx.cardview.widget.CardView>-->
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -20,6 +20,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
+import com.example.ordersio_seller.Activity.Main2Activity;
 import com.example.ordersio_seller.R;
 
 import org.json.JSONException;
@@ -32,13 +33,14 @@ import java.util.Objects;
 public class NewItemFragment extends Fragment {
     EditText editText,editText1;
     Button button;
-    String itemName,itemPrice,Token,uid="";
+    String itemName,itemPrice,Token;
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_newitem, container, false);
+        Main2Activity.current="NewFragment";
         SharedPreferences preferences = getActivity().getSharedPreferences("Ordersio",getActivity().MODE_PRIVATE);
-        uid = getArguments().getString("uid");
+//        uid = getArguments().getString("uid");
         Token  = preferences.getString("TOKEN",null);//second parameter default value.
         editText=view.findViewById(R.id.itemName);
         editText1=view.findViewById(R.id.itemPrice);
@@ -75,11 +77,11 @@ public class NewItemFragment extends Fragment {
             @Override
             public void onResponse(JSONObject response) {
                 Toast.makeText(getActivity(),"Item is successfully added!",Toast.LENGTH_SHORT).show();
-                Bundle b=new Bundle();
-                b.putString("uid",uid);
+//                Bundle b=new Bundle();
+//                b.putString("uid",uid);
                 Fragment someFragment = new ItemListFragment();
                 assert getFragmentManager() != null;
-                someFragment.setArguments(b);
+//                someFragment.setArguments(b);
                 FragmentTransaction transaction = getFragmentManager().beginTransaction();
                 transaction.replace(R.id.fragment_container1, someFragment );
                 transaction.addToBackStack(null);

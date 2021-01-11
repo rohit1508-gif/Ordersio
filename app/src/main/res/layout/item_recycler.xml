@@ -5,42 +5,48 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
-
+        android:orientation="horizontal">
+        <LinearLayout
+            android:layout_width="260dp"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
         <TextView
             android:padding="5dp"
             android:id="@+id/tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="24sp"
-            android:textStyle="bold" />
+            android:textSize="20dp"
+            android:fontFamily="@font/roboto"
+            android:textStyle="bold"
+            android:textColor="@color/black"/>
 
         <TextView
             android:id="@+id/tv1"
-            android:padding="5dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="18sp"
-            android:textStyle="bold" />
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <Button
+            android:padding="5dp"
+            android:textSize="18dp"
+            android:textColor="@color/black"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight ="10dp">
+            <ImageView
                 android:id="@+id/edit"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="50dp"
                 android:layout_alignParentStart="true"
-                android:layout_marginStart="88dp"
-                android:text="EDIT" />
+                android:src="@drawable/ic_edit"/>
 
-            <Button
+            <ImageView
                 android:id="@+id/delete"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_toRightOf="@id/edit"
-                android:text="Delete"
-                android:layout_marginLeft="50dp"/>
-        </RelativeLayout>
+                android:layout_height="50dp"
+                android:layout_marginLeft="10dp"
+              android:src="@drawable/ic_delete"/>
+        </LinearLayout>
     </LinearLayout>
 </androidx.cardview.widget.CardView>

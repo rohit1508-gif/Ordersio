@@ -21,6 +21,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.ordersio_seller.Activity.Main2Activity;
+import com.example.ordersio_seller.ModalClass.Global;
 import com.example.ordersio_seller.R;
 
 import org.json.JSONException;
@@ -76,13 +77,13 @@ public void login(String email,String password){
             Toast.makeText(getActivity(),"Login Successfully!",Toast.LENGTH_SHORT).show();
             try{
                 String type=response.getJSONObject("user").getString("type");
-                String uid=response.getJSONObject("user").getString("_id");
+                Global.uid=response.getJSONObject("user").getString("_id");
                 if(type.equals("Purchaser")){
-                    Bundle bundle=new Bundle();
-                    bundle.putString("uid",uid);
+//                    Bundle bundle=new Bundle();
+//                    bundle.putString("uid",uid);
                     Fragment someFragment = new RegistrationFragment();
                     assert getFragmentManager() != null;
-                    someFragment.setArguments(bundle);
+//                    someFragment.setArguments(bundle);
                     FragmentTransaction transaction = getFragmentManager().beginTransaction();
                     transaction.replace(R.id.fragment_container, someFragment );
                     transaction.addToBackStack(null);
@@ -90,7 +91,7 @@ public void login(String email,String password){
                 }
                 else{
                     Intent i = new Intent(getActivity(), Main2Activity.class);
-                    i.putExtra("uid",uid);
+//                    i.putExtra("uid",uid);
                     startActivity(i);
                 }
                 String token = response.getString("token");

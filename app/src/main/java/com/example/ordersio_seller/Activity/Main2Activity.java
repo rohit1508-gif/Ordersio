@@ -8,6 +8,7 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.MenuItem;
 
+import com.example.ordersio_seller.Fragment.ItemListFragment;
 import com.example.ordersio_seller.Fragment.OrderFragment;
 import com.example.ordersio_seller.R;
 
@@ -15,6 +16,7 @@ public class Main2Activity extends AppCompatActivity {
 
     SharedPreferences sp;
     String uid="",Token;
+    public static String current = null;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,9 +37,22 @@ public class Main2Activity extends AppCompatActivity {
 
     @Override
     public void onBackPressed(){
+        if(current.equals("OrderFragment")){
         Intent a = new Intent(Intent.ACTION_MAIN);
         a.addCategory(Intent.CATEGORY_HOME);
         a.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-        startActivity(a);
+        startActivity(a);}
+        else if(current.equals("ItemFragment")){
+            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container1,
+                    new OrderFragment()).commit();
+        }
+        else if(current.equals("EditFragment")){
+            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container1,
+                    new ItemListFragment()).commit();
+        }
+        else if(current.equals("NewFragment")){
+            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container1,
+                    new ItemListFragment()).commit();
+        }
     }
 }

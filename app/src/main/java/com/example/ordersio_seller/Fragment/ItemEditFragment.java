@@ -2,6 +2,7 @@ package com.example.ordersio_seller.Fragment;
 
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,6 +12,7 @@ import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
@@ -19,6 +21,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
+import com.example.ordersio_seller.Activity.Main2Activity;
 import com.example.ordersio_seller.R;
 
 import org.json.JSONException;
@@ -31,17 +34,22 @@ import java.util.Objects;
 public class ItemEditFragment extends Fragment {
     EditText editText,editText1;
     Button button;
-    String itemName,itemPrice,Token,id="";
+    String itemName,itemPrice,Token,id="",name,price;
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_edititem, container, false);
         SharedPreferences preferences = getActivity().getSharedPreferences("Ordersio",getActivity().MODE_PRIVATE);
-        Bundle b= getArguments();
-        id=b.getString("id");
         Token  = preferences.getString("TOKEN",null);//second parameter default value.
+        Bundle b= getArguments();
+        Main2Activity.current="EditFragment";
+        id=b.getString("id");
+        name = b.getString("name");
+        price = b.getString("price");
         editText=view.findViewById(R.id.itemName);
         editText1=view.findViewById(R.id.itemPrice);
+        editText.setText(name);
+        editText1.setText(price);
         button=view.findViewById(R.id.button);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -75,11 +83,17 @@ public class ItemEditFragment extends Fragment {
             @Override
             public void onResponse(JSONObject response) {
                 Toast.makeText(getActivity(),"Item is successfully edited!",Toast.LENGTH_SHORT).show();
+                Fragment someFragment = new ItemListFragment();
+                assert getFragmentManager() != null;
+                FragmentTransaction transaction = getFragmentManager().beginTransaction();
+                transaction.replace(R.id.fragment_container1, someFragment );
+                transaction.addToBackStack(null);
+                transaction.commit();
             }
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-
+                Log.i("error", error.toString());
             }
         }){
             @Override

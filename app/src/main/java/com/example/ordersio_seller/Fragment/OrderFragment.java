@@ -21,8 +21,11 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.Volley;
+import com.example.ordersio_seller.Activity.Main2Activity;
+import com.example.ordersio_seller.Activity.MainActivity;
 import com.example.ordersio_seller.Adapter.ItemAdapter;
 import com.example.ordersio_seller.Adapter.OrderAdapter;
+import com.example.ordersio_seller.ModalClass.Global;
 import com.example.ordersio_seller.ModalClass.OrderList;
 import com.example.ordersio_seller.R;
 
@@ -38,15 +41,15 @@ public class OrderFragment extends Fragment {
     OrderAdapter adapter;
     List<OrderList> list;
     Context ctx;
-    String uid="";
     Button button3;
     SwipeRefreshLayout refreshLayout;
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_order, container, false);
-        Bundle b = getArguments();
-        uid=b.getString("uid");
+        Main2Activity.current = "OrderFragment";
+//        Bundle b = getArguments();
+//        uid=b.getString("uid");
         ctx=getActivity();
         list=new ArrayList<>();
         refreshLayout = view.findViewById(R.id.swipeRefresh);
@@ -54,11 +57,11 @@ public class OrderFragment extends Fragment {
         button3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Bundle b=new Bundle();
-                b.putString("uid",uid);
+//                Bundle b=new Bundle();
+//                b.putString("uid",uid);
                 Fragment someFragment = new ItemListFragment();
                 assert getFragmentManager() != null;
-                someFragment.setArguments(b);
+//                someFragment.setArguments(b);
                 FragmentTransaction transaction = getFragmentManager().beginTransaction();
                 transaction.replace(R.id.fragment_container1, someFragment );
                 transaction.addToBackStack(null);
@@ -87,7 +90,7 @@ public class OrderFragment extends Fragment {
                 try{
                     for(int i=0;i<response.length();i++){
                         JSONObject o = response.getJSONObject(i);
-                        if(o.getString("seller").equals(uid)){
+                        if(o.getString("seller").equals(Global.uid)){
                             OrderList l = new OrderList(
                                     o.getString("purchaserName"),
                                     o.getString("purchaserNumber"),

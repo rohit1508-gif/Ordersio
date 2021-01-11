@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -63,10 +64,12 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ViewHolder> {
             public void onClick(View view) {
                 Bundle bundle=new Bundle();
                 bundle.putString("id",l.getId());
+                bundle.putString("name",l.getItemName());
+                bundle.putString("price",l.getItemPrice());
                 Fragment someFragment = new ItemEditFragment();
-                someFragment.setArguments(bundle);
                 FragmentManager fragmentManager = ((FragmentActivity) ctx).getSupportFragmentManager();
                 FragmentTransaction transaction = fragmentManager.beginTransaction();
+                someFragment.setArguments(bundle);
                 transaction.replace(R.id.fragment_container1, someFragment );
                 transaction.addToBackStack(null);
                 transaction.commit();
@@ -109,7 +112,7 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ViewHolder> {
     }
     public static class ViewHolder extends RecyclerView.ViewHolder{
         TextView e,e1;
-        Button b,b1;
+        ImageView b,b1;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             e=itemView.findViewById(R.id.tv);

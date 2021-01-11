@@ -20,7 +20,9 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.Volley;
+import com.example.ordersio_seller.Activity.Main2Activity;
 import com.example.ordersio_seller.Adapter.ItemAdapter;
+import com.example.ordersio_seller.ModalClass.Global;
 import com.example.ordersio_seller.ModalClass.ItemList;
 import com.example.ordersio_seller.R;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -38,26 +40,25 @@ public class ItemListFragment extends Fragment {
     RecyclerView recyclerView;
     List<ItemList> list;
     Context ctx;
-    String uid="";
     FloatingActionButton floatingActionButton;
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_item, container, false);
-
-        Bundle b = getArguments();
-        uid=b.getString("uid");
+        Main2Activity.current="ItemFragment";
+//        Bundle b = getArguments();
+//        uid=b.getString("uid");
         list=new ArrayList<>();
         ctx=getActivity();
         floatingActionButton = view.findViewById(R.id.floatingActionButton);
         floatingActionButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Bundle b=new Bundle();
-                b.putString("uid",uid);
+//                Bundle b=new Bundle();
+//                b.putString("uid",uid);
                 Fragment someFragment = new NewItemFragment();
                 assert getFragmentManager() != null;
-                someFragment.setArguments(b);
+//                someFragment.setArguments(b);
                 FragmentTransaction transaction = getFragmentManager().beginTransaction();
                 transaction.replace(R.id.fragment_container1, someFragment );
                 transaction.addToBackStack(null);
@@ -75,7 +76,7 @@ public class ItemListFragment extends Fragment {
                 try{
                 for(int i=0;i<response.length();i++){
                     JSONObject obj=response.getJSONObject(i);
-                    if(obj.getString("owner").equals(uid)){
+                    if(obj.getString("owner").equals(Global.uid)){
                         ItemList l = new ItemList(
                                 obj.getString("itemname"),
                                 obj.getString("price"),

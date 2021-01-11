@@ -21,6 +21,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.ordersio_seller.Activity.Main2Activity;
+import com.example.ordersio_seller.ModalClass.Global;
 import com.example.ordersio_seller.R;
 
 import org.json.JSONException;
@@ -33,14 +34,14 @@ import java.util.Objects;
 public class RegistrationFragment extends Fragment {
     EditText editText,editText1;
     Button button;
-    String shopname,address,Token,uid="";
+    String shopname,address,Token;
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_registration, container, false);
-        Bundle bundle = getArguments();
-        assert bundle != null;
-        uid=bundle.getString("uid");
+//        Bundle bundle = getArguments();
+//        assert bundle != null;
+//        uid=bundle.getString("uid");
         SharedPreferences preferences = getActivity().getSharedPreferences("Ordersio",getActivity().MODE_PRIVATE);
         Token  = preferences.getString("TOKEN",null);//second parameter default value.
         editText=view.findViewById(R.id.shopName);
@@ -80,7 +81,7 @@ public class RegistrationFragment extends Fragment {
             public void onResponse(JSONObject response) {
                 Toast.makeText(getActivity(),"Successfully registered as a seller",Toast.LENGTH_SHORT).show();
                 Intent i = new Intent(getActivity(), Main2Activity.class);
-                i.putExtra("uid",uid);
+//                i.putExtra("uid", Global.uid);
                 startActivity(i);
             }
         }, new Response.ErrorListener() {
