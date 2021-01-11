@@ -21,11 +21,8 @@ router.get('/items',async(req,res)=>{try{
 router.patch('/items/:id',auth,async (req,res)=>{
     const _id = req.params.id
     const updates = Object.keys(req.body)
+    const item = Item.findById(_id)
     try{
-        const item = await Item.findById(_id)
-        if(!item){
-            return res.status(404).send()
-        }
         updates.forEach((update)=>item[update]=req.body[update])
         await item.save()
         res.send(item)
