@@ -26,7 +26,7 @@ router.patch('/items/:id',auth,async (req,res)=>{
         return res.status(400).send('error:'+ 'Invalid Updates')
     }
     try{
-        const item = await Item.findById({_id:req.params.id,owner:req.user})
+        const item = await Item.findById({_id:req.params.id,owner:req.user._id})
         if(!item){
             return res.status(404).send()
         }
